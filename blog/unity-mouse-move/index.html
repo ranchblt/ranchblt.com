@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        
+
+        <title>
+            
+            
+                Unity 2d Tutorial - Controlling character with your mouse | Team Ranch BLT
+            
+        </title>
+
+        <meta name="title" content="Unity 2d Tutorial - Controlling character with your mouse | Team Ranch BLT">
+
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="chrome=1">
+        <meta name="HandheldFriendly" content="True">
+        <meta name="MobileOptimized" content="320">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="referrer" content="no-referrer-when-downgrade">
+        <meta name="generator" content="">
+        <base href="http://ranchblt.com/">
+        <meta name="description" content="Ranch BLT makes games.">
+        
+        <meta name="author" content="RanchBTL">
+        
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:site" content="@ranchblt">
+        <meta name="twitter:creator" content="@ranchblt">
+        
+        <meta property="og:title" content="Unity 2d Tutorial - Controlling character with your mouse | Team Ranch BLT">
+        <meta property="og:type" content="website">
+        <meta property="og:url" content="http://ranchblt.com/">
+        <meta property="og:image" content="http://ranchblt.com//images/avatar.png">
+        <meta property="og:description" content="Ranch BLT makes games.">
+        
+
+        
+        <link rel="apple-touch-icon" sizes="57x57" href="http://ranchblt.com/images/logo/apple-icon-57x57.png">
+        <link rel="apple-touch-icon" sizes="60x60" href="http://ranchblt.com/images/logo/apple-icon-60x60.png">
+        <link rel="apple-touch-icon" sizes="72x72" href="http://ranchblt.com/images/logo/apple-icon-72x72.png">
+        <link rel="apple-touch-icon" sizes="76x76" href="http://ranchblt.com/images/logo/apple-icon-76x76.png">
+        <link rel="apple-touch-icon" sizes="114x114" href="http://ranchblt.com/images/logo/apple-icon-114x114.png">
+        <link rel="apple-touch-icon" sizes="120x120" href="http://ranchblt.com/images/logo/apple-icon-120x120.png">
+        <link rel="apple-touch-icon" sizes="144x144" href="http://ranchblt.com/images/logo/apple-icon-144x144.png">
+        <link rel="apple-touch-icon" sizes="152x152" href="http://ranchblt.com/images/logo/apple-icon-152x152.png">
+        <link rel="apple-touch-icon" sizes="180x180" href="http://ranchblt.com/images/logo/apple-icon-180x180.png">
+        <link rel="icon" type="image/png" sizes="192x192"  href="images/logo/android-icon-192x192.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="http://ranchblt.com/images/logo/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="96x96" href="http://ranchblt.com/images/logo/favicon-96x96.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="http://ranchblt.com/images/logo/favicon-16x16.png">
+        <link rel="manifest" href="images/logo/manifest.json">
+        <meta name="msapplication-TileColor" content="#FFF">
+        <meta name="msapplication-TileImage" content="/images/logo/ms-icon-144x144.png">
+        <meta name="theme-color" content="#FFF">
+        
+
+        <link rel="canonical" href="http://ranchblt.com/blog/unity-mouse-move/">
+        
+        <link rel="stylesheet" href="styles/main.css" type="text/css">
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.10.0/styles/github.min.css">
+        
+    </head>
+
+    <body>
+        
+
+        
+
+        <nav class="row middle-xs center-xs">
+            <div class="col-xs-6 col-sm-1 logo">
+                <a href="http://ranchblt.com/"><img src="http://ranchblt.com/images/avatar.png" alt="Team Ranch BLT"></a>
+            </div>
+            
+            <div class="col-xs-3 col-md-2"><h3><a href="http://ranchblt.com/#work">Games</a></h3></div>
+            
+            <div class="col-xs-3 col-md-2"><h3><a href="http://ranchblt.com/#blog">Blog</a></h3></div>
+            
+            <div class="col-xs-3 col-md-2"><h3><a href="http://ranchblt.com/#about">About</a></h3></div>
+            
+            <div class="col-xs-6 col-sm-1 nav-toggle">
+                <a href="" class="nav-icon" onclick="return false"><img src="http://ranchblt.com/images/icon-menu.png" alt="Open Menu"><img src="http://ranchblt.com/images/icon-x.png" alt="Close Menu" style="display: none;"></a>
+            </div>
+        </nav>
+        <section class="nav-full row middle-xs center-xs">
+            <div class="col-xs-12">
+                <div class="row middle-xs center-xs">
+                    
+                    <div class="col-xs-12"><h1><a href="http://ranchblt.com/#work">Games</a></h1></div>
+                    
+                    <div class="col-xs-12"><h1><a href="http://ranchblt.com/#blog">Blog</a></h1></div>
+                    
+                    <div class="col-xs-12"><h1><a href="http://ranchblt.com/#about">About</a></h1></div>
+                    
+                </div>
+            </div>
+        </section>
+        <main>
+
+
+<section class="container">
+    <section class="content">
+      <h1> Unity 2d Tutorial - Controlling character with your mouse </h1>
+
+      <div class="sub-header">
+        May 2017 · 3 minute read
+      </div>
+
+      <div class="entry-content">
+        
+
+<p><strong>Unity version: 5.6</strong></p>
+
+<p>This tutorial doesn&rsquo;t cover a lot of the reason why it&rsquo;s done this way or the basics.
+This is a quick guide for specifically controlling your character with your mouse.</p>
+
+<p>We&rsquo;ll be working entirely in a script on your main character. I called mine playercontroller.cs</p>
+
+<h2 id="camera">Camera</h2>
+
+<p>To start off you&rsquo;ll want to get the camera because we need to translate the mouse position to the world.
+Add <code>public Camera cam;</code> to the controller.
+It&rsquo;s good practice to allow it to be changed later but I&rsquo;m lazy.
+Let&rsquo;s make sure if it&rsquo;s not set to give it the default camera.
+In your <code>Start()</code> function add</p>
+
+<pre><code>if(cam == null)
+{
+    cam = Camera.main;
+}
+</code></pre>
+
+<p>Great now we don&rsquo;t have to be bothered!</p>
+
+<h2 id="mouse-controls-character">Mouse controls character</h2>
+
+<p>If your controller doesn&rsquo;t have a function <code>FixedUpdate()</code> add it now.
+This is different from <code>Update()</code> since <code>FixedUpdate()</code> runs once per physics timestep instead of once per frame.
+Anything that gets the player input goes through <code>Input</code>, you can get the mouse position with <code>Input.mousePosition</code>
+However that <code>Vector3</code> is a screen position, not a world position.
+You can use the camera to convert it though.</p>
+
+<pre><code>var rawPosition = cam.ScreenToWorldPoint(Input.mousePosition);
+</code></pre>
+
+<p>In this example I only want to move the character on the y axis, that is up and down.
+I need to zero out the <code>rawPosition</code>&rsquo;s x.</p>
+
+<pre><code>var targetPosition = new Vector2(0, rawPosition.y);
+</code></pre>
+
+<p>Serious note, I used a <code>Vector2</code> here because it makes more sense to me since the game is 2d.
+However you need to lock the sprite in the Z axis because things get weird if you don&rsquo;t.
+Otherwise you can use a <code>Vector3</code> and just set the Z axis to 0.</p>
+
+<p>If you want to only allow X axis movement do this,</p>
+
+<pre><code>var targetPosition = new Vector2(rawPosition.x, 0);
+</code></pre>
+
+<p>Now that we have the mouse position in the world vs the screen it&rsquo;s time to move our character.</p>
+
+<pre><code>GetComponent&lt;Rigidbody2D&gt;().MovePosition(targetPosition);
+</code></pre>
+
+<p><em>Test this now!</em>
+The character should move on the axis you wanted but will be allowed to extend past the camera window.
+That&rsquo;s not optimal.</p>
+
+<h2 id="lock-character-inside-camera">Lock character inside camera</h2>
+
+<p>Let&rsquo;s first lock the character to the camera.
+We need to know the bounds of the camera but <code>Screen</code> only contains the screen size.
+We&rsquo;ll use the same translation as before.
+I created a class var for this <code>private float maxHeight;</code>.</p>
+
+<pre><code>var upperCorner = new Vector2(Screen.width, Screen.height);
+var rawUC = cam.ScreenToWorldPoint(upperCorner);
+maxHeight = rawUC.y
+</code></pre>
+
+<p>As I said before I&rsquo;m locking this to a max Y.
+If you wanted a max X just create a maxWidth var and set it to rawUC.x.</p>
+
+<p>So far we have the max height, now what?
+There is something to help us in the <code>Mathf</code> lib.
+Just use it and trust me.
+<a href="https://docs.unity3d.com/ScriptReference/Mathf.Clamp.html">Here&rsquo;s the documentation if you want.</a></p>
+
+<pre><code>float targetHeight = Mathf.Clamp(targetPosition.y, -maxHeight, maxHeight);
+targetPosition = new Vector2(0, targetHeight);
+</code></pre>
+
+<p><em>Test this now!</em>
+We&rsquo;re locking in <code>targetPosition</code> inside our world.
+You should not be able to get your character outside the camera.
+Oh damn though, you noticed half of the character is outside the camera.
+Fine let&rsquo;s continue.</p>
+
+<h2 id="fix-character-sprite-going-off-screen">Fix character sprite going off screen</h2>
+
+<p>We need to get the size of the character.
+Again I&rsquo;m doing this for height you can figure out for width.
+<a href="https://docs.unity3d.com/ScriptReference/Bounds-extents.html">Here&rsquo;s the documentation if you want.</a></p>
+
+<pre><code>var charHeight = GetComponent&lt;Renderer&gt;().bounds.extents.y;
+</code></pre>
+
+<p>Extents is half the size, lucky us.
+Make sure to subtract this from maxHeight,</p>
+
+<pre><code>maxHeight = rawUC.y - charHeight;
+</code></pre>
+
+<p><em>Test this now!</em>
+Actually we should be done.</p>
+
+<p>If something is wrong or you need more help.</p>
+
+<p><a href="https://twitter.com/peppage">twitter</a></p>
+
+<p><a href="https://github.com/ranchblt/ranchblt.com">github</a></p>
+
+      </div>
+
+      <div class="links">
+        
+        
+      </div>
+    </section>
+    <br>
+   <section class="disqus">
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        (function() {
+            
+            
+            if (window.location.hostname == "localhost")
+                return;
+            var disqus_shortname = '';
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view comments powered by <a href="http://disqus.com/?ref_noscript">Disqus</a>.</noscript>
+</section>
+
+</section>
+
+        </main>
+        <footer class="row middle-xs center-xs">
+            
+            <div class="col-xs-3 col-md-2"><a href="https://github.com/ranchblt">GitHub</a></div>
+            
+            
+            <div class="col-xs-3 col-md-2"><a href="https:///ranchblt.itch.io">Itch.io</a></div>
+            
+            
+            <div class="col-xs-3 col-md-2"><a href="https://twitter.com/ranchblt">Twitter</a></div>
+            
+            
+            
+            <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+            
+            <script src="http://ranchblt.com/scripts/main.js" type="text/javascript"></script>
+            
+            <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.10.0/highlight.min.js"></script>
+        </footer>
+    </body>
+</html>
+

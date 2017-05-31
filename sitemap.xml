@@ -2,7 +2,46 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://ranchblt.com/blog/unity-mouse-move/</loc>
+    <lastmod>2017-05-31T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://ranchblt.com/gallery/2015-12-14-winter-monarch/</loc>
+    <lastmod>2015-12-14T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://ranchblt.com/gallery/2015-01-24-project-1/</loc>
+    <lastmod>2015-01-24T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://ranchblt.com/blog/</loc>
+    <lastmod>2017-05-31T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://ranchblt.com/categories/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://ranchblt.com/gallery/</loc>
+    <lastmod>2015-12-14T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://ranchblt.com/tags/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>http://ranchblt.com/</loc>
+    <lastmod>2017-05-31T00:00:00+00:00</lastmod>
+    <priority>0</priority>
   </url>
   
 </urlset>

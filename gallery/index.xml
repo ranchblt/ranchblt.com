@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Galleries on Team Ranch BLT</title>
+    <link>http://ranchblt.com/gallery/</link>
+    <description>Recent content in Galleries on Team Ranch BLT</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    <copyright>false</copyright>
+    <lastBuildDate>Mon, 14 Dec 2015 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://ranchblt.com/gallery/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Call of the Winter Monarch</title>
+      <link>http://ranchblt.com/gallery/2015-12-14-winter-monarch/</link>
+      <pubDate>Mon, 14 Dec 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://ranchblt.com/gallery/2015-12-14-winter-monarch/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Please Remember</title>
+      <link>http://ranchblt.com/gallery/2015-01-24-project-1/</link>
+      <pubDate>Sat, 24 Jan 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://ranchblt.com/gallery/2015-01-24-project-1/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

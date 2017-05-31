@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Team Ranch BLT</title>
-    <link>http://ranchblt.com/</link>
-    <description>Recent content on Team Ranch BLT</description>
+    <title>Blogs on Team Ranch BLT</title>
+    <link>http://ranchblt.com/blog/</link>
+    <description>Recent content in Blogs on Team Ranch BLT</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
     <copyright>false</copyright>
     <lastBuildDate>Wed, 31 May 2017 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="http://ranchblt.com/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://ranchblt.com/blog/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -22,24 +22,6 @@
 This tutorial doesn&amp;rsquo;t cover a lot of the reason why it&amp;rsquo;s done this way or the basics. This is a quick guide for specifically controlling your character with your mouse.
 We&amp;rsquo;ll be working entirely in a script on your main character. I called mine playercontroller.cs
 Camera To start off you&amp;rsquo;ll want to get the camera because we need to translate the mouse position to the world. Add public Camera cam; to the controller.</description>
-    </item>
-    
-    <item>
-      <title>Call of the Winter Monarch</title>
-      <link>http://ranchblt.com/gallery/2015-12-14-winter-monarch/</link>
-      <pubDate>Mon, 14 Dec 2015 00:00:00 +0000</pubDate>
-      
-      <guid>http://ranchblt.com/gallery/2015-12-14-winter-monarch/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Please Remember</title>
-      <link>http://ranchblt.com/gallery/2015-01-24-project-1/</link>
-      <pubDate>Sat, 24 Jan 2015 00:00:00 +0000</pubDate>
-      
-      <guid>http://ranchblt.com/gallery/2015-01-24-project-1/</guid>
-      <description></description>
     </item>
     
   </channel>
