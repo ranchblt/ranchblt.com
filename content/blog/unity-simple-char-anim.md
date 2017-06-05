@@ -104,7 +104,8 @@ Then just use Input to detect the button change and change the animation.
         }
     }
 
-*Test this now!* It should switch the animation when you press Fire1.
+*Test this now!*
+It should switch the animation when you press Fire1.
 The default buttons for this are left ctrl and mouse 1.
 You can change it though.
 From the main menu, Edit -> Project Settings -> Input.
