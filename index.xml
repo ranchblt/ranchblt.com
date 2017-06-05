@@ -7,10 +7,21 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
     <copyright>false</copyright>
-    <lastBuildDate>Thu, 01 Jun 2017 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 05 Jun 2017 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="http://ranchblt.com/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Unity 2d Tutorial - Shooting an animated projectile</title>
+      <link>http://ranchblt.com/blog/unity-shoot/</link>
+      <pubDate>Mon, 05 Jun 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://ranchblt.com/blog/unity-shoot/</guid>
+      <description>Unity version: 5.6
+This tutorial doesn&amp;rsquo;t cover a lot of the reason why it&amp;rsquo;s done this way or the basics. This is a quick guide for shooting something from your main character without gravity when a button is pressed.
+Create animation from sprite sheet When you import a sprite sheet you must set the sprite mode to Multiple in the Inspector. Open up the sprite editor. This is the screen you can define the shape of your sprite.</description>
+    </item>
     
     <item>
       <title>Unity 2d Tutorial - Simple character animation</title>

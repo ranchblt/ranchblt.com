@@ -6,11 +6,11 @@
         <title>
             
             
-                Unity 2d Tutorial - Simple character animation | Team Ranch BLT
+                Unity 2d Tutorial - Shooting an animated projectile | Team Ranch BLT
             
         </title>
 
-        <meta name="title" content="Unity 2d Tutorial - Simple character animation | Team Ranch BLT">
+        <meta name="title" content="Unity 2d Tutorial - Shooting an animated projectile | Team Ranch BLT">
 
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="chrome=1">
@@ -28,7 +28,7 @@
         <meta name="twitter:site" content="@ranchblt">
         <meta name="twitter:creator" content="@ranchblt">
         
-        <meta property="og:title" content="Unity 2d Tutorial - Simple character animation | Team Ranch BLT">
+        <meta property="og:title" content="Unity 2d Tutorial - Shooting an animated projectile | Team Ranch BLT">
         <meta property="og:type" content="website">
         <meta property="og:url" content="http://ranchblt.com/">
         <meta property="og:image" content="http://ranchblt.com/images/avatar.png">
@@ -55,7 +55,7 @@
         <meta name="theme-color" content="#FFF">
         
 
-        <link rel="canonical" href="http://ranchblt.com/blog/unity-simple-char-anim/">
+        <link rel="canonical" href="http://ranchblt.com/blog/unity-shoot/">
         
         <link rel="stylesheet" href="styles/main.css" type="text/css">
         <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.10.0/styles/github.min.css">
@@ -110,7 +110,7 @@ ga('send', 'pageview');
 
 <section class="container">
     <section class="content">
-      <h1> Unity 2d Tutorial - Simple character animation </h1>
+      <h1> Unity 2d Tutorial - Shooting an animated projectile </h1>
 
       <div class="sub-header">
         June 2017 · 4 minute read
@@ -122,114 +122,95 @@ ga('send', 'pageview');
 <p><strong>Unity version: 5.6</strong></p>
 
 <p>This tutorial doesn&rsquo;t cover a lot of the reason why it&rsquo;s done this way or the basics.
-This is a quick guide for giving your character a different sprite when a button is pressed.</p>
+This is a quick guide for shooting something from your main character without gravity when a button is pressed.</p>
 
-<p>For this tutorial I&rsquo;ll be using 2 different sprites to switch between when my wizard shoots.
-We&rsquo;ll set it up so the wizard switches on &ldquo;fire1&rdquo;.</p>
+<h1 id="create-animation-from-sprite-sheet">Create animation from sprite sheet</h1>
 
-<h1 id="create-animation">Create animation</h1>
+<p>When you import a sprite sheet you must set the sprite mode to Multiple in the Inspector.
+Open up the sprite editor.
+This is the screen you can define the shape of your sprite.
+There are options to auto create the sprites based on size and unity taking a guess.
+Here I just did it myself because there are only 3 frames.
+Just draw a box around each one, order matters.</p>
 
-<p>First open up the animation window.
-From the menu, Window -&gt; animation.
-Dock that panel, I&rsquo;ll wait.
-Now select your your character, I assume they&rsquo;re in the scene already, and the animation window should change and show a create button.</p>
+<p><img src="http://i.imgur.com/lux2rq9.jpg"></p>
 
-<p><img src="http://i.imgur.com/u7zRYxJ.jpg" /></p>
+<p>Now when you drag the fireball onto your Scene it will suggest you create an animation.
+Do this, name it something obvious.
+Since we want to shoot it out of our character we should give it a Rigidbody 2d.
+For simplicity set the Gravity Scale to 0.</p>
 
-<p>Click it, give your new animation a name related to your character and the action.
-I suggest idle or standing or you get it.
-It will show up in a dropdown so it is important to name correctly.
-Now add a new propery and in the menu, expand Sprite Renderer and scroll all the way to the bottom.
-Click the plus next to sprite, you may need to scroll the menu to the right.</p>
+<p>Ok this is something interesting I picked up.
+You want this fireball to be useable on other game objects but you don&rsquo;t want it to be in the scene on the start.
+Drag the fireball from the Scene to the Project (I suggest in a prefabs folder) and it saves the fireball in its current state.
+This is the object you drag to the character, you can always drag this prefab back to the Scene for testing.
+Now you can remove the fireball object from your scene.</p>
 
-<p><img src="http://i.imgur.com/7VBy4L0.gif" /></p>
+<h1 id="add-projectile-to-character">Add projectile to character</h1>
 
-<p>Since I&rsquo;m not adding a walking animation you can simplify this animation by deleting the second key frame.
-Here:</p>
+<p>Start by adding a public var for the fireball so we can add it in Unity.
+Also let&rsquo;s make the speed adjustable.</p>
 
-<p><img src="http://i.imgur.com/3jER97i.jpg" /></p>
+<pre><code>public Rigidbody2D fireball;
+public float fireballSpeed = 8f;
+</code></pre>
 
-<p>Now we need to add the animation of the wizard shooting.
-In the area you added a property there is a dropdown with what you named the animation.
-Click it and then click &ldquo;Create New Clip&hellip;&rdquo;.
-Again give it a decent name, you&rsquo;ll thank yourself later.
-This creates an empty animation, it&rsquo;s just easier if you copy the first animation to this one.
-Go back to the first animation, select the keyframe and copy and paste it to the new animation.
-Now we just need to switch it to your other shooting sprite.
-Drag the sprite you want to use to the Sprite Renderer in the Inspector.</p>
+<p>Then in <code>Update()</code> check if the Input button that we want to use is down and create a new instance of the fireball.
+Changing the velocity of the new fireball makes it move to the right on the screen.</p>
 
-<p><img src="http://i.imgur.com/ermBSnX.gif" /></p>
-
-<p>If you have the Scene open you&rsquo;ll be able to see the change.</p>
-
-<p>At this point you might be wondering why the play buttons at the top are red.
-It has to do with the record button in the Animation window.
-We&rsquo;re just going to ignore that for now, turn off the record button.</p>
-
-<h1 id="setup-triggers">Setup triggers</h1>
-
-<p>Now we have to setup a trigger so you can switch the animations in code.
-Switch to the Animator panel and you&rsquo;ll see a nice state machine.
-Organize the buttons to make it a little clearer if you want.</p>
-
-<p>On the left of the Animator panel if you have parameters selected there is a little plus.
-Click it and select trigger.
-Make sure to name your trigger carefully because this is the name we use in code.</p>
-
-<p><img src="http://i.imgur.com/QSQcKlB.jpg" /></p>
-
-<p>Now right click and select Make Transition on the first animation.
-Then left click on the second animation.
-Note: In my image the first animation is the orange one, it already has a transition from Entry.</p>
-
-<p>Select the transition we just created and in the Inspector you&rsquo;ll see Has Exit Time.
-Uncheck this box.
-This stops the transition from transition at the end of the animation.
-For example, after my test animation ends in 1 second in would transition to temp-shoot.
-We don&rsquo;t want that, we want to use the trigger.</p>
-
-<p>So uncheck that box and use the + under Conditions to add the shoot trigger as a condition.</p>
-
-<p><img src="http://i.imgur.com/FZ2IUNH.jpg" /></p>
-
-<p>Create a new trigger on the other animation and point it back to the first one.
-The same process as before by right clicking on the animation.
-Since we want this one to auto transition back to the first animation we don&rsquo;t need to uncheck Has Exit Time.</p>
-
-<p><em>Test this now!</em> You&rsquo;ll need to be able to see both the Game and Animator windows but you can test the transition.
-Run the game and in the Animtaor window click the radio button next to the shoot trigger and it will activate the trigger.
-You should see the transition happen in the Game.</p>
-
-<h1 id="code">Code</h1>
-
-<p>This part is pretty easy.
-First let&rsquo;s add a new private var to hold the Animator.
-This doesn&rsquo;t change after load so it can be added to start.
-This is a snippet:</p>
-
-<pre><code>private Animator anim;
-
-void Start() {
-    anim = GetComponent&lt;Animator&gt;();
+<pre><code>if (Input.GetButtonDown(&quot;Fire1&quot;))
+{
+    var fireballInst = Instantiate(fireball, transform.position, Quaternion.Euler(new Vector2(0, 0)));
+    fireballInst.velocity = new Vector2(fireballSpeed, 0);
 }
 </code></pre>
 
-<p>Then just use Input to detect the button change and change the animation.</p>
+<p>Oh the Euler?
+No idea.
+This code works and I&rsquo;m going with it.</p>
 
-<pre><code>void Update () {
-    if (Input.GetButtonDown(&quot;Fire1&quot;))
-    {
-        anim.SetTrigger(&quot;shoot&quot;);
-    }
+<p>Drag and drop fireball prefab to the wizard script.
+<em>Test this now!</em>
+You&rsquo;ll see in the Hierarchy that new fireballs are created every time you press Mouse1 or left ctrl.</p>
+
+<h1 id="bonus-destroy-offscreen-projectiles">Bonus: Destroy offscreen projectiles</h1>
+
+<p>If you&rsquo;re shooting a lot you&rsquo;ll want anything off screen to be destroyed.
+Or else you&rsquo;re going to waste a lot of physics calculations.
+Always good practice to clean up after yourself.</p>
+
+<p>Create an empty object in your scene.
+Rename it, I picked &ldquo;Destroyer&rdquo;.
+add an Edge Collider 2d to the object.
+We want to set it as a trigger so click &ldquo;Is Trigger&rdquo;.</p>
+
+<p>Now you want to Edit Collider and place it around the outside of your game.
+It&rsquo;s pretty intuative you can add points by clicking and remove points by ctrl clicking.
+I put it mostly around the camera so that it would collect other objects besides these fireballs.
+It doesn&rsquo;t have to be perfect.</p>
+
+<p><img src="http://i.imgur.com/NlezsH3.jpg" /></p>
+
+<p>Now create a new script on that object, I named mine &ldquo;DestroyOnContact&rdquo;.
+Since it&rsquo;s a trigger and it&rsquo;s 2d use this function.
+The collision is passed in so we just need to destroy the gameObject that it&rsquo;s attached to.</p>
+
+<pre><code>private void OnTriggerEnter2D(Collider2D collision)
+{
+    Destroy(collision.gameObject);
 }
 </code></pre>
 
 <p><em>Test this now!</em>
-It should switch the animation when you press Fire1.
-The default buttons for this are left ctrl and mouse 1.
-You can change it though.
-From the main menu, Edit -&gt; Project Settings -&gt; Input.
-This opens the InputManager in the Inspector.</p>
+This happens off camera so you&rsquo;ll either have to just see in the Hierarchy that the fireballs are deleted or switch back to the Scene.</p>
+
+<h1 id="bonus-2-collision">Bonus 2: Collision</h1>
+
+<p>Really all you have to do is throw a Box Collider 2d on the fireball prefab.
+I ran into something weird where when my monster and fireball both had a Box Collider 2d.
+When the objects ran into each other the fireball pushed the monster off the screen.
+I tried to use <code>OnCollisionEnter2D(Collision2D collision)</code> but it only worked sometimes.
+I fixed this by switching the Box Collider 2d on the monster to Is Trigger and using <code>OnTriggerEnter2D(Collider2D collision)</code>.</p>
 
 <p>If something is wrong or you need more help.</p>
 
@@ -241,10 +222,8 @@ This opens the InputManager in the Inspector.</p>
 
       <div class="links">
         
-          &laquo; <a class="basic-alignment left" href="http://ranchblt.com/blog/unity-mouse-move/">Unity 2d Tutorial - Controlling character with your mouse</a>
+          &laquo; <a class="basic-alignment left" href="http://ranchblt.com/blog/unity-simple-char-anim/">Unity 2d Tutorial - Simple character animation</a>
         
-        
-          <a class="basic-alignment left" href="http://ranchblt.com/blog/unity-shoot/">Unity 2d Tutorial - Shooting an animated projectile</a> &raquo;
         
       </div>
     </section>
