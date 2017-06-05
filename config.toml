@@ -5,7 +5,7 @@ languageCode = "en-US"
 config = "config.toml"
 theme = "osprey"
 canonifyURLS = true
-googleAnalytics = ""
+googleAnalytics = "UA-100496008-1"
 
 [Params]
     author = "RanchBTL"
@@ -13,7 +13,7 @@ googleAnalytics = ""
     logoBig = "/images/avatar.png"
     logoSmall = "/images/avatar.png"
     favicon = "favicon.ico"
-    opengraphImage = "/images/avatar.png"
+    opengraphImage = "images/avatar.png"
     disqusShortname = ""
     twitter = "ranchblt"
     itchio = "ranchblt"
